@@ -382,10 +382,9 @@ module.exports = function (grunt) {
         name: 'config',
         space: '  ',
         wrap: '"use strict";\n\n {%= __ngModule %}',
-        dest: '<%= yeoman.app %>/scripts/config.js'
+        dest: '.tmp/scripts/config.js'
       },
       development: {
-        dest: '<%= yeoman.app %>/scripts/config.js',
         constants: {
           ENV: grunt.file.readJSON('development.env.json')
         }

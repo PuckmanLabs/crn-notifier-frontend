@@ -18,8 +18,7 @@ angular.module('crnNotifierApp')
       $scope.subscribePromise = $http.post(ENV.apiBase + '/register/', subscriber)
       $scope.subscribePromise.success (data, status, headers, config) ->
         showError "We'll keep a watch on that for you!", "success"
-        $scope.subscriber = null
-        $scope.subscriberForm.$setPristine()
+        $scope.subscriber.crn = null
       $scope.subscribePromise.error (data, status, headers, config) ->
         showError "Something went wrong...", "error"
 
