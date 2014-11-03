@@ -1,0 +1,23 @@
+<section class="subscribe-form">
+  <h2 class="page-title"><strong>Class filled?</strong> We've gotcha</h2>
+  <form name="subscriberForm" ng-submit="subscribe(subscriber)" cg-busy="subscribePromise">
+    <div class="row" ng-if="error">
+      <div class="alert" ng-class="'alert-' + error.type"><strong>{{error.title}}</strong> {{error.message}}</div>
+    </div>
+    <div class="row">
+      <input type="text" placeholder="CRN" required maxlength="5" autofocus pattern="[0-9]{5}" ng-model="subscriber.crn">
+    </div>
+    <div class="row">
+      <input type="email" placeholder="Email" ng-model="subscriber.email">
+    </div>
+    <div class="row text-center">
+      <div class="seperator"><span>and / or</span></div>
+    </div>
+    <div class="row">
+      <input type="tel" placeholder="Phone" pattern="\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}" ng-model="subscriber.phone">
+    </div>
+    <div class="row text-center">
+      <button type="submit">Subscribe</button>
+    </div>
+  </form>
+</section>

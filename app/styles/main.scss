@@ -1,0 +1,158 @@
+// bower:scss
+@import "bourbon/dist/_bourbon.scss";
+@import "neat/app/assets/stylesheets/_neat.scss";
+// endbower
+
+$bg-color: #5092BD;
+
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  @include linear-gradient($bg-color, shade($bg-color, 30%));
+  background-attachment: fixed;
+}
+
+#Main {
+  @include outer-container;
+}
+
+h2.page-title {
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+
+  strong {
+    font-weight: 800;
+    letter-spacing: 1px;
+  }
+}
+
+.subscribe-form {
+  @include span-columns(4);
+  @include shift(4);
+
+  @media (max-width: 768px) {
+    @include span-columns(10);
+    @include shift(1);
+  }
+
+  margin-top: 10%;
+
+  .seperator {
+    display: block;
+    margin: 5px 0 10px;
+
+    overflow: hidden;
+    white-space: nowrap;
+
+    & > span {
+      position: relative;
+      display: inline-block;
+
+      color: shade($bg-color, 40%);
+      font-size: 0.75em;
+      text-shadow: 0px 1px 0px shade($bg-color, 5%);
+
+      &:before, &:after {
+        background: shade($bg-color, 30%);
+        box-shadow: 0px 1px 0px shade($bg-color, 5%);
+        content: '';
+        height: 1px;
+        position: absolute;
+        top: 50%;
+        width: 99999px;
+      }
+
+      &:before {
+        right: 100%;
+        margin-right: 10px;
+      }
+
+      &:after {
+        left: 100%;
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+input {
+  @include appearance(none);
+  @include span-columns(12);
+  @include box-sizing(border-box);
+
+  height: 35px;
+  padding: 0 10px;
+  margin-bottom: 5px;
+
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: .9em;
+
+  outline: 0;
+
+  background: tint($bg-color, 10%);
+  border: 0;
+  border-radius: 2px;
+  box-shadow: 0px 0px 4px shade($bg-color, 2%);
+  color: white;
+
+  &:focus {
+  }
+
+  @include placeholder {
+    color: tint($bg-color, 60%);
+  }
+}
+
+button {
+  @include appearance(none);
+
+  height: 35px;
+  padding: 0 10px;
+  margin-bottom: 5px;
+
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: .9em;
+
+  outline: 0;
+  border: 0;
+
+  border-radius: 2px;
+  box-shadow: 0px 0px 4px shade($bg-color, 2%);
+  color: white;
+
+  background: tint($bg-color, 10%);
+}
+
+.alert {
+  background: #eee;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  color: #666;
+  font-size: 0.9em;
+  padding: 10px;
+  margin-bottom: 20px;
+
+  &.alert-success {
+    background-color: #dff0d8;
+    border-color: shade(#dff0d8, 15%);
+    color: #3c763d;
+  }
+
+  &.alert-error {
+    background-color: #f2dede;
+    border-color: shade(#f2dede, 15%);
+    color: #a94442;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.row {
+  @include row();
+}
